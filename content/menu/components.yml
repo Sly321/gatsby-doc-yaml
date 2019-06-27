@@ -1,0 +1,5 @@
+id: components
+title: Komponenten
+items:
+    - id: button
+      name: Button

@@ -11,38 +11,37 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Sidebar from "./sidebar"
+import { Helmet } from "react-helmet"
 
-const Layout = ({ children }) => {
-    const data = useStaticQuery(graphql`
+const Layout = ({ children, title, lang }) => {
+    const {
+        site: { siteMetadata },
+    } = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
                 siteMetadata {
                     title
                 }
             }
-            sitePage(children: {}) {
-                path
-                children {
-                    id
-                    children {
-                        id
-                    }
-                }
-                component
-                componentChunkName
-                componentPath
-                parent {
-                    id
-                }
-            }
         }
     `)
 
-    console.log(data)
-
     return (
         <>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Helmet
+                htmlAttributes={{
+                    lang,
+                }}
+                title={title}
+                titleTemplate={`%s | ${siteMetadata.title}`}
+            >
+                <link
+                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                    rel="stylesheet"
+                    type="text/css"
+                />
+            </Helmet>
+            <Header siteTitle={title} />
             <div
                 style={{
                     margin: `0 auto`,
@@ -65,6 +64,12 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    lang: PropTypes.string,
+    title: PropTypes.string.isRequired,
+}
+
+Layout.defaultProps = {
+    lang: `en`,
 }
 
 export default Layout

@@ -10,12 +10,12 @@ export interface Props {
     color: string
 
     /**
-     * Loosly Documented
+     * Bad Documented
      * @memberof Props
      */
     children: ReactNode
 
-    // Bad Documented
+    // Nearly not Documented
     type: string
 
     notDocument: number | any

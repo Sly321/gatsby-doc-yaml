@@ -1,34 +1,52 @@
 import React from "react"
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
+import Properties from "../../components/properties"
 
 const Button = () => {
+    // const cmptName = "Button"
+
+    // TODO UseConfigurable Input or Template
     const data = useStaticQuery(graphql`
         query {
-            allComponentMetadata(filter: { displayName: { eq: "Button" } }) {
-                totalCount
-                nodes {
-                    displayName
-                    childrenComponentProp {
-                        type {
-                            value
-                            raw
-                        }
-                        required
+            componentMetadata(displayName: { eq: "Button" }) {
+                docblock
+                displayName
+                doclets
+                props {
+                    tsType {
                         name
-                        flowType
                     }
+                    type {
+                        name
+                    }
+                    name
+                    required
+                    description {
+                        text
+                    }
+                    doclets
+                }
+            }
+            allMenuYaml(
+                filter: { items: { elemMatch: { name: { eq: "Button" } } } }
+            ) {
+                nodes {
+                    title
                 }
             }
         }
     `)
 
-    console.log(data)
+    const { componentMetadata, allMenuYaml } = data
 
+    // TODO allMenuYaml.nodes[0] possible nullPointer
     return (
-        <Layout>
-            <SEO title="Button" />
+        <Layout
+            title={`${componentMetadata.displayName} | ${allMenuYaml.nodes[0].title}`}
+        >
+            <h2>{componentMetadata.displayName}</h2>
+            <Properties componentProperties={componentMetadata.props} />
         </Layout>
     )
 }

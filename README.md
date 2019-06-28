@@ -2,6 +2,18 @@
 
 `#idc`
 
+## THIS PROJECT DOENST WORK IF YOU DO NOT:
+
+go to: `node_modules/gatsby-transformer-react-docgen/doclets.js` after install and paste:
+
+```js
+if (prop.type === undefined) {
+    prop.type = { ...prop.tsType } || { ...prop.flowType } || {}
+}
+```
+
+in line 77.
+
 ## stuff i still need to read
 
 5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.

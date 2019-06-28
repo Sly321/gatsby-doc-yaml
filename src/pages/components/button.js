@@ -3,7 +3,7 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Button = props => {
+const Button = () => {
     const data = useStaticQuery(graphql`
         query {
             allComponentMetadata(filter: { displayName: { eq: "Button" } }) {

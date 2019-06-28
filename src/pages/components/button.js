@@ -46,6 +46,7 @@ const Button = () => {
             title={`${componentMetadata.displayName} | ${allMenuYaml.nodes[0].title}`}
         >
             <h2>{componentMetadata.displayName}</h2>
+            <hr />
             <Properties componentProperties={componentMetadata.props} />
         </Layout>
     )

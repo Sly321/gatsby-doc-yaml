@@ -33,6 +33,7 @@ module.exports = {
         },
         `gatsby-transformer-yaml`,
         `gatsby-transformer-sharp`,
+        `gatsby-transformer-remark`,
         `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-transformer-react-docgen`,

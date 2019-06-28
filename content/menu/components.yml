@@ -1,5 +1,21 @@
 id: components
 title: Komponenten
 items:
+    - id: autosuggest
+      name: Autosuggest
     - id: button
       name: Button
+    - id: checkbox
+      name: Checkbox
+    - id: datepicker
+      name: Datepicker
+    - id: filepicker
+      name: Filepicker
+    - id: input
+      name: Input
+    - id: input
+      name: Input
+    - id: input
+      name: Input
+    - id: input
+      name: Input

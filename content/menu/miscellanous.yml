@@ -1,0 +1,9 @@
+id: miscellanous
+title: Verschiedenes
+items:
+    - id: icons
+      name: Icons
+    - id: errormessages
+      name: Fehlermeldungen
+    - id: changelog
+      name: Changelog

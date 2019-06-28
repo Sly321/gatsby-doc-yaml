@@ -4,9 +4,9 @@ import PropTypes from "prop-types"
 export default function Properties({ componentProperties }) {
     return (
         <>
-            <h2>Properties</h2>
+            <h3>Properties</h3>
             <hr />
-            <pre>{JSON.stringify(componentProperties, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(componentProperties, null, 2)}</pre> */}
         </>
     )
 }

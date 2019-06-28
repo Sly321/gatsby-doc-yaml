@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-export default function Sidebar({}) {
+export default function Sidebar() {
     const data = useStaticQuery(graphql`
         query {
             allMenuYaml {

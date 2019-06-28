@@ -24,9 +24,22 @@ module.exports = {
                 path: `${__dirname}/content/`,
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `library`,
+                path: `${__dirname}/library`,
+            },
+        },
         `gatsby-transformer-yaml`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-transformer-react-docgen`,
+            options: {
+                babelrcRoots: [`${__dirname}/library/`],
+            },
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
